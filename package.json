@@ -1,5 +1,6 @@
 {
-  "name": "mantine-vite-template",
+  "name": "jessica-portfolio",
+  "homepage": "https://jessicaliu06.github.io/portfolio",
   "private": true,
   "type": "module",
   "version": "0.0.0",
@@ -17,7 +18,9 @@
     "vitest:watch": "vitest",
     "test": "npm run typecheck && npm run prettier && npm run lint && npm run vitest && npm run build",
     "storybook": "storybook dev -p 6006",
-    "storybook:build": "storybook build"
+    "storybook:build": "storybook build",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
   },
   "dependencies": {
     "@mantine/core": "8.0.0",
