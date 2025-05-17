@@ -1,7 +1,6 @@
 {
-  "name": "jessica-portfolio",
+  "name": "portfolio",
   "homepage": "https://jessicaliu06.github.io/portfolio",
-  "private": true,
   "type": "module",
   "version": "0.0.0",
   "scripts": {
