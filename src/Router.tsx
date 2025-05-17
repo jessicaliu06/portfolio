@@ -9,7 +9,7 @@ const router = createBrowserRouter(
     },
   ],
   {
-    basename: '/jessicaliu06.github.io',
+    basename: '/',
   }
 );
 
