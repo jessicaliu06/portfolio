@@ -5,8 +5,6 @@ import Experience from '../components/Experience/Experience';
 export function HomePage() {
   return (
     <>
-      <Welcome />
-      <ColorSchemeToggle />
       <Experience />
     </>
   );
