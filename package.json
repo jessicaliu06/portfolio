@@ -1,6 +1,7 @@
 {
   "name": "portfolio",
-  "private": true,
+  "homepage": "https://jessicaiu06.github.io/portfolio/",
+  "private": false,
   "type": "module",
   "version": "0.0.0",
   "scripts": {
@@ -18,12 +19,13 @@
     "test": "npm run typecheck && npm run prettier && npm run lint && npm run vitest && npm run build",
     "storybook": "storybook dev -p 6006",
     "storybook:build": "storybook build",
+    "predeploy" : "npm run build",
+    "deploy" : "gh-pages -d dist"
   },
   "dependencies": {
     "@mantine/core": "8.0.0",
     "@mantine/hooks": "8.0.0",
     "@tabler/icons-react": "^3.33.0",
-    "gh-pages": "^6.3.0",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
     "react-router-dom": "^7.5.3"
@@ -45,6 +47,7 @@
     "eslint-config-mantine": "^4.0.3",
     "eslint-plugin-jsx-a11y": "^6.10.2",
     "eslint-plugin-react": "^7.37.5",
+    "gh-pages": "^6.3.0",
     "identity-obj-proxy": "^3.0.0",
     "jsdom": "^26.1.0",
     "postcss": "^8.5.3",
