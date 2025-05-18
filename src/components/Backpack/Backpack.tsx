@@ -39,7 +39,7 @@ export default function Backpack() {
             if (backpackRef.current) {
                 const rect = backpackRef.current.getBoundingClientRect();
                 setBackpackCenter({
-                    x: rect.left + rect.width / 2,
+                    x: rect.left + rect.width / 2 - 25,
                     y: rect.top + rect.height / 2,
                 });
                 setBackpackWidth(rect.width);
@@ -66,105 +66,105 @@ export default function Backpack() {
         {
             src: airpods,
             widthPct: 0.35, 
-            xPct: -1,   
+            xPct: -0.8,   
             yPct: -0.075,    
             r: 10,
         },
         {
             src: lipgloss,
             widthPct: 0.15, 
-            xPct: -0.75,   
+            xPct: -0.55,   
             yPct: -0.35,    
             r: 10,
         },
         {
             src: warthog,
             widthPct: 0.75, 
-            xPct: -1.4,   
+            xPct: -1.2,   
             yPct: -0.75,    
             r: -10,
         },
         {
             src: kombucha,
             widthPct: 0.58, 
-            xPct: -1.1,   
+            xPct: -0.9,   
             yPct: -0.95,    
             r: -15,
         },
         {
             src: apple,
             widthPct: 0.4, 
-            xPct: -0.77,   
+            xPct: -0.57,   
             yPct: -0.9,    
             r: -10,
         },
         {
             src: umbrella,
             widthPct: 0.25, 
-            xPct: -0.7,   
+            xPct: -0.5,   
             yPct: -0.57,    
             r: 190,
         },
         {
             src: book,
             widthPct: 0.4,
-            xPct: -0.43,
+            xPct: -0.23,
             yPct: -1.15,
             r: -5
         },
         {
             src: waterbottle,
             widthPct: 0.8,
-            xPct: -0.25,
+            xPct: -0.05,
             yPct: -1.4,
             r: 5
         },
         {
             src: sheep,
             widthPct: 1.1,
-            xPct: 0.1,
+            xPct: 0.3,
             yPct: -1.42,
             r: 10,
         },
         {
             src: gogosqueez,
             widthPct: 0.35, 
-            xPct: 0.92,   
+            xPct: 1.12,   
             yPct: -0.7,    
             r: -5,
         },
         {
             src: lipbalm,
             widthPct: 0.4,
-            xPct: 0.22,
+            xPct: 0.42,
             yPct: -0.6,
             r: 10,
         },
         {
             src: highlighter,
             widthPct: 0.4,
-            xPct: 0.32,
+            xPct: 0.52,
             yPct: -0.33,
             r: 140,
         },
         {
             src: notebook,
             widthPct: 0.7,
-            xPct: 0.45,
+            xPct: 0.65,
             yPct: -0.35,
             r: 15,
         },
         {
             src: pencil,
             widthPct: 0.4,
-            xPct: 0.85,
+            xPct: 1.05,
             yPct: -0.2,
             r: 0
         },
         {
             src: eraser,
             widthPct: 0.2,
-            xPct: 0.8,
+            xPct: 1,
             yPct: -0.1,
             r: -45
         },
