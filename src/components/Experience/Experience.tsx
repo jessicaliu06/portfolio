@@ -1,16 +1,27 @@
-import { Container, Timeline, Text } from '@mantine/core';
-import { IconSun, IconVideo } from '@tabler/icons-react';
+import { Stack, Title, Text } from '@mantine/core';
 
 export default function Experience() {
-    return (
-        <Container fluid size="md" bg="var(--mantine-color-blue-light)">
-            <Timeline bulletSize={24} active={1}>
-                <Timeline.Item title="Default bullet" bullet={<IconSun size={12} />}>
-                <Text c="dimmed" size="sm">
-                    Default bullet without anything
-                </Text>
-                </Timeline.Item>
-            </Timeline>
-        </Container>
-    );
+  return (
+    <Stack
+      h={200}
+      bg="var(--mantine-color-body)"
+      align="center"
+      justify="center"
+      w="100%"
+      style={{
+        boxSizing: 'border-box',
+        maxWidth: '100vw',
+        padding: 0,
+        margin: 0,
+      }}
+    >
+        <Title order={1}>
+            Experience
+        </Title>
+
+       <Text>
+            Under construction
+        </Text>
+    </Stack>
+  );
 }

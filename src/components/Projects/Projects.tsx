@@ -1,6 +1,6 @@
 import { Stack, Title, Text } from '@mantine/core';
 
-export default function Intro() {
+export default function Projects() {
   return (
     <Stack
       h={200}
@@ -15,11 +15,11 @@ export default function Intro() {
         margin: 0,
       }}
     >
-       <Title order={1}>
-            Hi, I'm Jessica!
+        <Title order={1}>
+            Projects
         </Title>
 
-       <Text>
+        <Text>
             Under construction
         </Text>
     </Stack>
