@@ -1,27 +1,39 @@
-import { Stack, Title, Text } from '@mantine/core';
+import { Container, Stack, Title, Text } from '@mantine/core';
 
 export default function Intro() {
   return (
-    <Stack
-      h={200}
-      bg="var(--mantine-color-body)"
-      align="center"
-      justify="center"
-      w="100%"
-      style={{
-        boxSizing: 'border-box',
-        maxWidth: '100%',
-        padding: 0,
-        margin: 0,
+    <Container
+      fluid
+      id="intro"
+      style={{ 
+          position: 'relative',
+          width: '100%',
+          height: '100vh',
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+          boxSizing: 'border-box',
       }}
     >
-       <Title order={1}>
-            Hi, I'm Jessica!
+      <Stack
+        align="center"
+        justify="center"
+        w="100%"
+        h="100%"
+        style={{
+          boxSizing: 'border-box',
+          maxWidth: '100%',
+          height: "100%",
+        }}
+      >
+        <Title order={1}>
+          Hi, I'm Jessica!
         </Title>
 
-       <Text>
-            Under construction
+        <Text>
+          Under construction
         </Text>
-    </Stack>
+      </Stack>
+    </Container>    
   );
 }

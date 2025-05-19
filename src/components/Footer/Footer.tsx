@@ -15,7 +15,7 @@ export default function Footer() {
       }}
     >
       <Text pt="sm" pb="sm">
-        Thank you for visiting!
+        Thank you for visiting! 
       </Text>
     </Stack>
   );

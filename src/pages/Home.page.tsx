@@ -1,5 +1,6 @@
 import { Container } from '@mantine/core';
 
+import Header from '../components/Header/Header';
 import Intro from '../components/Intro/Intro';
 import Experience from '../components/Experience/Experience';
 import Projects from '../components/Projects/Projects';
@@ -18,12 +19,12 @@ export function HomePage() {
         padding: 0,
         maxWidth: '100%',
         boxSizing: 'border-box',
-        outline: '2px solid red',
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
       }}
     >
+      <Header />
       <Intro />
       <Experience />
       <Projects />

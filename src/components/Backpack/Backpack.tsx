@@ -57,10 +57,9 @@ export default function Backpack() {
     }, [sectionRef.current, startScrollY]);
 
     const maxAnimationScroll = 300;
-    const progress =
-        startScrollY !== null
-            ? Math.min(Math.max((scroll.y - startScrollY) / maxAnimationScroll, 0), 1)
-            : 0;
+    const progress = startScrollY !== null && scroll.y >= startScrollY
+                        ? Math.min((scroll.y - startScrollY) / maxAnimationScroll, 1)
+                        : 0;
 
     const objects = [
         {
@@ -174,8 +173,8 @@ export default function Backpack() {
 
     return (
         <Container
+            fluid
             ref={sectionRef}
-            size="md"
             style={{ 
                 position: 'relative',
                 height: '80vh',
@@ -225,6 +224,8 @@ export default function Backpack() {
                     />
                 );
             })}
+
+            <div style={{ height: 300, pointerEvents: 'none' }} />
         </Container>
     );
 }
