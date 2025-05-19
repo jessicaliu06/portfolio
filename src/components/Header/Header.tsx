@@ -1,10 +1,10 @@
 import { useState } from 'react';
-import { Box, Button, Drawer, Burger, Group, Stack } from '@mantine/core';
+import { Box, Button, Burger, Group, Menu } from '@mantine/core';
 import { useMediaQuery } from '@mantine/hooks';
 
 export default function Header() {
-  const [drawerOpened, setDrawerOpened] = useState(false);
-  const isMobile = useMediaQuery('(max-width: 768px)'); // adjust breakpoint as needed
+  const [menuOpened, setMenuOpened] = useState(false);
+  const isMobile = useMediaQuery('(max-width: 768px)');
 
   const sections = [
     { id: 'intro', label: 'About' },
@@ -25,7 +25,7 @@ export default function Header() {
         behavior: 'smooth',
       });
     }
-    setDrawerOpened(false);
+    setMenuOpened(false);
   };
 
   return (
@@ -65,43 +65,24 @@ export default function Header() {
       </Button>
 
       {isMobile ? (
-        <>
-          <Burger
-            opened={drawerOpened}
-            onClick={() => setDrawerOpened((o) => !o)}
-            size="sm"
-          />
-          <Drawer
-            opened={drawerOpened}
-            onClose={() => setDrawerOpened(false)}
-            padding="md"
-            size="xs"
-            position="right"
-          >
-            <Stack>
-              {sections.map(({ id, label }) => (
-                <Button
-                  key={id}
-                  variant="subtle"
-                  onClick={() => scrollWithOffset(id)}
-                  style={{
-                    padding: '8px 12px',
-                    backgroundColor: 'transparent',
-                    color: 'inherit',
-                    fontWeight: 500,
-                    borderRadius: 4,
-                    cursor: 'pointer',
-                    border: 'none',
-                    textTransform: 'none',
-                    width: '100%',
-                  }}
-                >
-                  {label}
-                </Button>
-              ))}
-            </Stack>
-          </Drawer>
-        </>
+        <Menu
+          opened={menuOpened}
+          onChange={setMenuOpened}
+          position="bottom-end"
+          withinPortal
+          shadow="md"
+        >
+          <Menu.Target>
+            <Burger opened={menuOpened} onClick={() => setMenuOpened((v) => !v)} size="sm" />
+          </Menu.Target>
+          <Menu.Dropdown>
+            {sections.map(({ id, label }) => (
+              <Menu.Item key={id} onClick={() => scrollWithOffset(id)}>
+                {label}
+              </Menu.Item>
+            ))}
+          </Menu.Dropdown>
+        </Menu>
       ) : (
         <Group>
           {sections.map(({ id, label }) => (
