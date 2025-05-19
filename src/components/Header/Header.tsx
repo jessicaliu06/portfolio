@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Box, Button, Drawer, Burger, Group } from '@mantine/core';
+import { Box, Button, Drawer, Burger, Group, Stack } from '@mantine/core';
 import { useMediaQuery } from '@mantine/hooks';
 
 export default function Header() {
@@ -25,7 +25,7 @@ export default function Header() {
         behavior: 'smooth',
       });
     }
-    setDrawerOpened(false); // close drawer after click (mobile)
+    setDrawerOpened(false);
   };
 
   return (
@@ -77,10 +77,8 @@ export default function Header() {
             padding="md"
             size="xs"
             position="right"
-            overlayOpacity={0.55}
-            overlayBlur={3}
           >
-            <Stack spacing="md">
+            <Stack>
               {sections.map(({ id, label }) => (
                 <Button
                   key={id}
@@ -105,7 +103,7 @@ export default function Header() {
           </Drawer>
         </>
       ) : (
-        <Group spacing="md">
+        <Group>
           {sections.map(({ id, label }) => (
             <Button
               key={id}
