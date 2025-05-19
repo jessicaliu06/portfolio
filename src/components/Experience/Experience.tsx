@@ -116,7 +116,7 @@ export default function Experience() {
                       }}
                     >
                       <List.Item>Developed original teaching strategies, materials, and exercises for continued use across future semesters.</List.Item>
-                      <List.Item>Teach weekly recitations to reinforce understanding of object-oriented programming principles.</List.Item>
+                      <List.Item>Taught weekly recitations to reinforce understanding of object-oriented programming principles.</List.Item>
                       <List.Item>Held six office hours per week to provide individual instruction and debugging help.</List.Item>
                     </List>
                   </Box>
