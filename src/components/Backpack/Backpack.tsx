@@ -1,26 +1,28 @@
 import { useRef, useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Container, Image } from '@mantine/core';
-import { useWindowScroll } from '@mantine/hooks';
+import { useWindowScroll, useMediaQuery } from '@mantine/hooks';
 
-import backpack from '/src/assets/backpack.png';
-import lipgloss from '/src/assets/lipgloss.png';
-import notebook from '/src/assets/notebook.png';
-import airpods from '/src/assets/airpods.png';
-import book from '/src/assets/book.png';
-import lipbalm from '/src/assets/lipbalm.png';
-import pencil from '/src/assets/pencil.png';
-import eraser from '/src/assets/eraser.png';
-import sheep from '/src/assets/sheep.png';
-import kombucha from '/src/assets/kombucha.png';
-import apple from '/src/assets/apple.png';
-import gogosqueez from '/src/assets/gogosqueez.png';
-import warthog from '/src/assets/warthog.png';
-import umbrella from '/src/assets/umbrella.png';
-import waterbottle from '/src/assets/waterbottle.png';
-import highlighter from '/src/assets/highlighter.png';
+import backpack from '/src/assets/items/backpack.png';
+import lipgloss from '/src/assets/items/lipgloss.png';
+import notebook from '/src/assets/items/notebook.png';
+import airpods from '/src/assets/items/airpods.png';
+import book from '/src/assets/items/book.png';
+import lipbalm from '/src/assets/items/lipbalm.png';
+import pencil from '/src/assets/items/pencil.png';
+import eraser from '/src/assets/items/eraser.png';
+import sheep from '/src/assets/items/sheep.png';
+import kombucha from '/src/assets/items/kombucha.png';
+import apple from '/src/assets/items/apple.png';
+import gogosqueez from '/src/assets/items/gogosqueez.png';
+import warthog from '/src/assets/items/warthog.png';
+import umbrella from '/src/assets/items/umbrella.png';
+import waterbottle from '/src/assets/items/waterbottle.png';
+import highlighter from '/src/assets/items/highlighter.png';
 
 export default function Backpack() {
+    const isMobile = useMediaQuery('(max-width: 768px)');
+
     const [scroll] = useWindowScroll();
     const sectionRef = useRef<HTMLDivElement>(null);
     const backpackRef = useRef<HTMLImageElement>(null);
@@ -56,7 +58,7 @@ export default function Backpack() {
         };
     }, [sectionRef.current, startScrollY]);
 
-    const maxAnimationScroll = 300;
+    const maxAnimationScroll = isMobile ? 100 : 300;
     const progress = startScrollY !== null && scroll.y >= startScrollY
                         ? Math.min((scroll.y - startScrollY) / maxAnimationScroll, 1)
                         : 0;
@@ -177,7 +179,7 @@ export default function Backpack() {
             ref={sectionRef}
             style={{ 
                 position: 'relative',
-                height: '80vh',
+                height: isMobile ? '150vh' : '125vh',
                 width: '100%',
                 boxSizing: 'border-box',
                 maxWidth: '100%',

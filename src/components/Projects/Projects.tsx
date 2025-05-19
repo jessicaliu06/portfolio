@@ -27,7 +27,7 @@ export default function Projects() {
           margin: 0,
         }}
       >
-        <Title order={3}>
+        <Title order={2}>
           Projects
         </Title>
         <Text>

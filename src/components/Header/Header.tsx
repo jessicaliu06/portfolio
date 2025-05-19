@@ -39,7 +39,7 @@ export default function Header() {
         backgroundColor: 'white',
         borderBottom: '1px solid #dee2e6',
         boxShadow: '0 2px 8px rgba(0, 0, 0, 0.1)',
-        zIndex: 1000,
+        zIndex: 99,
         display: 'flex',
         alignItems: 'center',
         padding: '0 16px',
@@ -65,24 +65,48 @@ export default function Header() {
       </Button>
 
       {isMobile ? (
-        <Menu
-          opened={menuOpened}
-          onChange={setMenuOpened}
-          position="bottom-end"
-          withinPortal
-          shadow="md"
+        <Box
+          style={{
+            zIndex: 100,
+          }}
         >
-          <Menu.Target>
-            <Burger opened={menuOpened} onClick={() => setMenuOpened((v) => !v)} size="sm" />
-          </Menu.Target>
-          <Menu.Dropdown>
-            {sections.map(({ id, label }) => (
-              <Menu.Item key={id} onClick={() => scrollWithOffset(id)}>
-                {label}
-              </Menu.Item>
-            ))}
-          </Menu.Dropdown>
-        </Menu>
+          <Menu
+            opened={menuOpened}
+            onChange={setMenuOpened}
+            position="bottom-end"
+            withinPortal
+            shadow="sm"
+            styles={{
+              dropdown: {
+                right: '10px',
+                left: 'auto',
+                transform: 'translateY(-8px)'
+              },
+            }}
+          >
+            <Menu.Target>
+              <Burger opened={false} onClick={() => setMenuOpened((v) => !v)} size="sm" />
+            </Menu.Target>
+            <Menu.Dropdown>
+              {sections.map(({ id, label }, index) => (
+                <div key={id}>
+                  <Menu.Item 
+                    onClick={() => scrollWithOffset(id)}
+                    styles={{
+                      item: {
+                        paddingTop: 1,
+                        paddingBottom: 1,
+                      },
+                    }}
+                  >
+                    {label}
+                  </Menu.Item>
+                  {index < sections.length - 1 && <Menu.Divider />}
+              </div>
+              ))}
+            </Menu.Dropdown>
+          </Menu>
+        </Box>
       ) : (
         <Group>
           {sections.map(({ id, label }) => (

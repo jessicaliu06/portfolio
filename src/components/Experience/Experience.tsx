@@ -1,12 +1,16 @@
-import { Container, List, Stack, Text, Timeline, Title } from '@mantine/core';
+import { Box, Container, List, Stack, Text, Timeline, Title } from '@mantine/core';
+import { useMediaQuery } from '@mantine/hooks';
 import { IconSun, IconVideo } from '@tabler/icons-react';
 
 import ExperienceCard from './ExperienceCard';
 
-import nianticLogo from '/src/assets/niantic.png';
-import gtLogo from '/src/assets/gtLogo.png';
+import nianticLogo from '/src/assets/logos/niantic.png';
+import gtLogo from '/src/assets/logos/gtLogo.png';
+import alphaModelsLogo from '/src/assets/logos/alphaModelsLogo.png';
 
 export default function Experience() {
+  const isMobile = useMediaQuery('(max-width: 768px)');
+
   return (
     <Container
       fluid
@@ -33,7 +37,7 @@ export default function Experience() {
           margin: 0,
         }}
       >
-        <Title order={3}>
+        <Title order={2}>
           Experience
         </Title>
 
@@ -41,10 +45,7 @@ export default function Experience() {
           bulletSize={24}
           style={{ 
             margin: '0 auto', 
-            width: '35%',
-            '@media (max-width: 600px)': {
-              width: '90%'      
-            }     
+            width: useMediaQuery('(max-width: 768px)') ? '100%' : '35%' 
           }}
           
         >
@@ -55,7 +56,7 @@ export default function Experience() {
               date="May 2025 – August 2025"
               location="Seattle, WA"
               details=
-              {<List spacing="xs" size="sm">
+              {<List spacing="xs" size={isMobile ? "xs" : 'sm'}>
                 <List.Item>Niantic Augmented Reality SDK</List.Item>
               </List>}
               value="niantic"
@@ -69,58 +70,94 @@ export default function Experience() {
               date="May 2024 – Present"
               location="Atlanta, GA"
               details=
-              {<Timeline bulletSize={16} lineWidth={3.5} style={{ marginTop: 10 }}>
-                <Timeline.Item title="CS 3510 – Design & Analysis of Algorithms">
-                  <Text c="dimmed" size="sm"> August 2025 – Present </Text>
-                </Timeline.Item>
-                <Timeline.Item title="CS 2110 – Computer Organization & Programming">
-                  <Text c="dimmed" size="sm"> January 2025 – May 2025 </Text>
-                  <List 
-                    spacing="xs"
-                    size="sm"
-                    styles={{
-                      item: {
-                        marginBottom: -5,
-                        marginTop: 5,
-                        '&:last-of-type': {
+              {<Box style={{ width: '97%' }}>
+                <Stack style={{ marginTop: -5 }}>
+                  <Box>
+                    <Title order={ isMobile ? 6 : 4 }>CS 3510 – Design & Analysis of Algorithms</Title>
+                    <Text c="dimmed" style={{fontSize: isMobile ? 10 : 14}}>August 2025 – Present</Text>
+                  </Box>
+
+                  <Box>
+                      <Title order={ isMobile ? 6 : 4 }>CS 2110 – Computer Organization & Programming</Title>
+                      <Text c="dimmed" style={{fontSize: isMobile ? 10 : 14}}>January 2025 – May 2025</Text>
+                      <List
+                        spacing="xs"
+                        size={isMobile ? "xs" : 'sm'}
+                        styles={{
+                          item: {
+                            marginBottom: -5,
+                            marginTop: 5,
+                            '&:last-of-type': {
+                              marginBottom: 0,
+                            },
+                          },
+                        }}
+                      >
+                          <List.Item>Lead weekly labs to teach fundamental concepts in computer architecture, assembly programming, C programming, and memory management.</List.Item>
+                          <List.Item>Hosted office hours; designed and graded homework assignments and assessments.</List.Item>
+                      </List>
+                  </Box>
+
+                  <Box>
+                    <Title order={ isMobile ? 6 : 4 }>CS 1331 – Object-Oriented Programming</Title>
+                    <Text style={{fontSize: isMobile ? 12 : 14}}>Recitation Lead</Text>
+                    <Text c="dimmed" style={{fontSize: isMobile ? 10 : 14}}>January 2024 – December 2024</Text>
+                    <List
+                      spacing="xs"
+                      size= {isMobile ? "xs" : 'sm'}
+                      styles={{
+                        item: {
                           marginBottom: -5,
+                          marginTop: 5,
+                          '&:last-of-type': {
+                            marginBottom: 0,
+                          },
                         },
-                      },
-                    }}
-                  >
-                    <List.Item>Lead weekly labs to teach fundamental concepts in computer architecture, assembly programming, C programming, and memory management.</List.Item>
-                    <List.Item>Hosted office hours for 800+ students; designed and graded homework assignments and assessments.</List.Item>
-                  </List>
-                </Timeline.Item>
-                <Timeline.Item title="CS 1331 – Object-Oriented Programmming">
-                  <Text size="md"> Recitation Lead </Text>
-                  <Text c="dimmed" size="sm"> January 2024 – December 2024 </Text>
-                  <List 
-                    spacing="xs"
-                    size="sm"
-                    styles={{
-                      item: {
-                        marginBottom: -5,
-                        marginTop: 5,
-                        '&:last-of-type': {
-                          marginBottom: -5,
-                        },
-                      },
-                    }}
-                  >
-                    <List.Item>Developed original teaching strategies, materials, and exercises for continued use across future semesters.</List.Item>
-                    <List.Item>Teach weekly recitations to reinforce understanding of object-oriented programming principles.</List.Item>
-                    <List.Item>Held six office hours per week to provide individual instruction and debugging help.</List.Item>
-                  </List>
-                </Timeline.Item>
-              </Timeline>}
+                      }}
+                    >
+                      <List.Item>Developed original teaching strategies, materials, and exercises for continued use across future semesters.</List.Item>
+                      <List.Item>Teach weekly recitations to reinforce understanding of object-oriented programming principles.</List.Item>
+                      <List.Item>Held six office hours per week to provide individual instruction and debugging help.</List.Item>
+                    </List>
+                  </Box>
+                </Stack>
+              </Box>}
               value="ta"
               logo={gtLogo}
             />
           </Timeline.Item>
+          <Timeline.Item>
+            <ExperienceCard
+              company="Alpha Models Inc."
+              title="Software Engineering Intern"
+              date="May 2022 – August 2022"
+              location="Alpharetta, GA"
+              details=
+              { <List 
+                    spacing="xs"
+                    style={{ width: '97%' }}
+                    size={isMobile ? "xs" : 'sm'}
+                    styles={{
+                      item: {
+                        marginBottom: -5,
+                        marginTop: 5,
+                        '&:last-of-type': {
+                          marginBottom: 0,
+                        },
+                      },
+                    }}
+                  >
+                  <List.Item>Devised an algorithmic C++ approach to the Traveling Salesman Problem to plan freight railroad maintenance.</List.Item>
+                  <List.Item>Developed Java simulations to model railroad yard operations and optimize carrier labor and fuel expenses.</List.Item>
+                  <List.Item>Studied business policies, operational constraints, and government regulations in the railroad transportation.</List.Item>
+                </List>
+              }
+              value="alphaModels"
+              logo={alphaModelsLogo}
+            />
+          </Timeline.Item>
         </Timeline>
       </Stack>
-
     </Container>
   );
 }
