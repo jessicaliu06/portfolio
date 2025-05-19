@@ -179,7 +179,7 @@ export default function Backpack() {
             ref={sectionRef}
             style={{ 
                 position: 'relative',
-                height: isMobile ? '80vh' : '80vh',
+                height: isMobile ? '150vh' : '80vh',
                 width: '100%',
                 boxSizing: 'border-box',
                 maxWidth: '100%',
