@@ -37,7 +37,17 @@ export default function Experience() {
           Experience
         </Title>
 
-        <Timeline bulletSize={24} style={{ margin: '0 auto', width: '35%' }}>
+        <Timeline 
+          bulletSize={24}
+          style={{ 
+            margin: '0 auto', 
+            width: '35%',
+            '@media (max-width: 600px)': {
+              width: '90%'      
+            }     
+          }}
+          
+        >
           <Timeline.Item>
             <ExperienceCard
               company="Niantic Spatial"
