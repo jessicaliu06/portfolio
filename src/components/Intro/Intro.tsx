@@ -1,4 +1,4 @@
-import { Container, Stack, Title, Text } from '@mantine/core';
+import { Button, Container, Stack, Text, Title } from '@mantine/core';
 
 export default function Intro() {
   return (
@@ -26,13 +26,22 @@ export default function Intro() {
           height: "100%",
         }}
       >
-        <Title order={1}>
+        <Title order={1} ta="center">
           Hi, I'm Jessica!
         </Title>
 
-        <Text>
-          Under construction
+        <Text size="xl" ta="center" lh="1.3" mb="sm">
+          I study computer science and mathematics at the Georgia Institute of Technology.
         </Text>
+
+        <Button
+          component="a"
+          href="https://jessicaliu06.github.io/resume/LiuJessica_Resume.pdf"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Resume
+        </Button>
       </Stack>
     </Container>    
   );

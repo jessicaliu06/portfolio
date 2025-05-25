@@ -552,8 +552,15 @@
   dependencies:
     buffer "^6.0.3"
 
-"@mantine/core@8.0.0":
-  version "8.0.0"
+"@mantine/carousel@^8.0.1":
+  version "8.0.1"
+  resolved "https://registry.npmjs.org/@mantine/carousel/-/carousel-8.0.1.tgz"
+  integrity sha512-ornywivQvQ1fD7ZxO5XDmPVrqTJb6JRoKlYktYFXltylthjazK7qo37ytD+10jBhqJBd0MXxRkaYWSnvL3xXdw==
+
+"@mantine/core@^8.0.1", "@mantine/core@8.0.1":
+  version "8.0.1"
+  resolved "https://registry.npmjs.org/@mantine/core/-/core-8.0.1.tgz"
+  integrity sha512-4ezaxKjChSPtawamQ3KrJq+x506uTouXlL0Z5fP+t105KnyxMrAJUENhbh2ivD4pq9Zh1BFiD9IWzyu3IXFR8w==
   dependencies:
     "@floating-ui/react" "^0.26.28"
     clsx "^2.1.1"
@@ -562,8 +569,10 @@
     react-textarea-autosize "8.5.9"
     type-fest "^4.27.0"
 
-"@mantine/hooks@8.0.0":
-  version "8.0.0"
+"@mantine/hooks@^8.0.1", "@mantine/hooks@8.0.1":
+  version "8.0.1"
+  resolved "https://registry.npmjs.org/@mantine/hooks/-/hooks-8.0.1.tgz"
+  integrity sha512-GvLdM4Ro3QcDyIgqrdXsUZmeeKye2TNL/k3mEr9JhM5KacHQjr83JPp0u9eLobn7kiyBqpLTYmVYAbmjJdCxHw==
 
 "@modelcontextprotocol/sdk@^1.8.0":
   version "1.11.0"
@@ -803,16 +812,20 @@
   resolved "https://registry.npmjs.org/@types/lodash/-/lodash-4.17.16.tgz"
   integrity sha512-HX7Em5NYQAXKW+1T+FiuG27NGwzJfCX3s1GjOa7ujxZa52kjJLOr4FUxT+giF6Tgxv1e+/czV/iTtBw27WTU9g==
 
-"@types/node@^18.0.0 || ^20.0.0 || >=22.0.0", "@types/node@^22.15.11":
-  version "22.15.11"
+"@types/node@^18.0.0 || ^20.0.0 || >=22.0.0", "@types/node@^22.15.21":
+  version "22.15.21"
+  resolved "https://registry.npmjs.org/@types/node/-/node-22.15.21.tgz"
+  integrity sha512-EV/37Td6c+MgKAbkcLG6vqZ2zEYHD7bvSrzqqs2RIhbA6w3x+Dqz8MZM3sP6kGTeLrdoOgKZe+Xja7tUB2DNkQ==
   dependencies:
     undici-types "~6.21.0"
 
 "@types/react-dom@^18.0.0 || ^19.0.0", "@types/react-dom@^19.1.3":
   version "19.1.3"
 
-"@types/react@*", "@types/react@^16.8.0 || ^17.0.0 || ^18.0.0", "@types/react@^16.9.0 || ^17.0.0 || ^18.0.0", "@types/react@^18.0.0 || ^19.0.0", "@types/react@^19.0.0", "@types/react@^19.1.3":
-  version "19.1.3"
+"@types/react@*", "@types/react@^16.8.0 || ^17.0.0 || ^18.0.0", "@types/react@^18.0.0 || ^19.0.0", "@types/react@^19.0.0", "@types/react@^19.1.5":
+  version "19.1.5"
+  resolved "https://registry.npmjs.org/@types/react/-/react-19.1.5.tgz"
+  integrity sha512-piErsCVVbpMMT2r7wbawdZsq4xMvIAhQuac2gedQHysu1TZYEigE6pnFfgZT+/jQnrRuF5r+SHzuehFjfRjr4g==
   dependencies:
     csstype "^3.0.2"
 
@@ -1593,6 +1606,8 @@ dequal@^2.0.3:
 
 detect-node-es@^1.1.0:
   version "1.1.0"
+  resolved "https://registry.npmjs.org/detect-node-es/-/detect-node-es-1.1.0.tgz"
+  integrity sha512-ypdmJU/TbBby2Dxibuv7ZLW3Bs1QEmM7nHjEANfohJLvE0XVujisn1qPJcZxg+qDucsr+bP6fLD1rPS3AhJ7EQ==
 
 dir-glob@^3.0.1:
   version "3.0.1"
@@ -1638,6 +1653,24 @@ email-addresses@^5.0.0:
   version "5.0.0"
   resolved "https://registry.npmjs.org/email-addresses/-/email-addresses-5.0.0.tgz"
   integrity sha512-4OIPYlA6JXqtVn8zpHpGiI7vE6EQOAg16aGnDMIAlZVinnoZ8208tW1hAbjWydgN/4PLTT9q+O1K6AH/vALJGw==
+
+embla-carousel-react@>=8.0.0, embla-carousel-react@8.5.2:
+  version "8.5.2"
+  resolved "https://registry.npmjs.org/embla-carousel-react/-/embla-carousel-react-8.5.2.tgz"
+  integrity sha512-Tmx+uY3MqseIGdwp0ScyUuxpBgx5jX1f7od4Cm5mDwg/dptEiTKf9xp6tw0lZN2VA9JbnVMl/aikmbc53c6QFA==
+  dependencies:
+    embla-carousel "8.5.2"
+    embla-carousel-reactive-utils "8.5.2"
+
+embla-carousel-reactive-utils@8.5.2:
+  version "8.5.2"
+  resolved "https://registry.npmjs.org/embla-carousel-reactive-utils/-/embla-carousel-reactive-utils-8.5.2.tgz"
+  integrity sha512-QC8/hYSK/pEmqEdU1IO5O+XNc/Ptmmq7uCB44vKplgLKhB/l0+yvYx0+Cv0sF6Ena8Srld5vUErZkT+yTahtDg==
+
+embla-carousel@>=8.0.0, embla-carousel@8.5.2:
+  version "8.5.2"
+  resolved "https://registry.npmjs.org/embla-carousel/-/embla-carousel-8.5.2.tgz"
+  integrity sha512-xQ9oVLrun/eCG/7ru3R+I5bJ7shsD8fFwLEY7yPe27/+fDHCNj0OT5EoG5ZbFyOxOcG6yTwW8oTz/dWyFnyGpg==
 
 emoji-regex@^8.0.0:
   version "8.0.0"
@@ -3763,7 +3796,7 @@ react-textarea-autosize@8.5.9:
     use-composed-ref "^1.3.0"
     use-latest "^1.2.1"
 
-"react@^0.14 || ^15.0.0 || ^16.0.0 || ^17.0.0 || ^18.0.0 || ^19.0.0", "react@^16.8.0 || ^17.0.0 || ^18.0.0", "react@^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0", "react@^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0 || ^19.0.0-rc", "react@^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0-beta", "react@^18.0.0 || ^19.0.0", "react@^18.x || ^19.x", react@^19.1.0, "react@>= 16", react@>=16.8.0, react@>=18:
+"react@^0.14 || ^15.0.0 || ^16.0.0 || ^17.0.0 || ^18.0.0 || ^19.0.0", "react@^16.8.0 || ^17.0.0 || ^18.0.0", "react@^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0", "react@^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0 || ^19.0.0-rc", "react@^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0-beta", "react@^16.8.0 || ^17.0.1 || ^18.0.0 || ^19.0.0 || ^19.0.0-rc", "react@^18.0.0 || ^19.0.0", "react@^18.x || ^19.x", react@^19.1.0, "react@>= 16", react@>=16.8.0, react@>=18:
   version "19.1.0"
 
 readdirp@~3.6.0:
@@ -4734,7 +4767,9 @@ use-latest@^1.2.1:
     use-isomorphic-layout-effect "^1.1.1"
 
 use-sidecar@^1.1.2:
-  version "1.1.2"
+  version "1.1.3"
+  resolved "https://registry.npmjs.org/use-sidecar/-/use-sidecar-1.1.3.tgz"
+  integrity sha512-Fedw0aZvkhynoPYlA5WXrMCAMm+nSWdZt6lzJQ7Ok8S6Q+VsHmHpRWndVRJ8Be0ZbkfPc5LRYH+5XrzXcEeLRQ==
   dependencies:
     detect-node-es "^1.1.0"
     tslib "^2.0.0"

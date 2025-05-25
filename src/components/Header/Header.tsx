@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Box, Button, Burger, Group, Menu } from '@mantine/core';
 import { useMediaQuery } from '@mantine/hooks';
+import { IconBrandGithub, IconBrandLinkedin } from '@tabler/icons-react';
 
 export default function Header() {
   const [menuOpened, setMenuOpened] = useState(false);
@@ -51,7 +52,7 @@ export default function Header() {
         onClick={() => scrollWithOffset('intro')}
         style={{
           fontWeight: 'bold',
-          fontSize: 20,
+          fontSize: 22,
           padding: 0,
           minWidth: 0,
           backgroundColor: 'transparent',
@@ -63,6 +64,94 @@ export default function Header() {
       >
         Jessica Liu
       </Button>
+
+      {isMobile ? (
+        <Box
+          style={{
+            position: 'absolute',
+            right: 56,
+            display: 'flex',
+          }}
+        >
+          <Button
+            component="a"
+            href="https://github.com/jessicaliu06"
+            target="_blank"
+            rel="noopener noreferrer"
+            variant="subtle"
+            size="sm"
+            px={8}
+            style={{ color: 'inherit' }}
+            aria-label="GitHub"
+          >
+            <IconBrandGithub size={22} />
+          </Button>
+
+          <Button
+            component="a"
+            href="https://www.linkedin.com/in/jessicaaliu/"
+            target="_blank"
+            rel="noopener noreferrer"
+            variant="subtle"
+            size="sm"
+            px={8}
+            style={{ color: 'inherit' }}
+            aria-label="LinkedIn"
+          >
+            <IconBrandLinkedin size={22} />
+          </Button>
+        </Box>
+      ) : (
+        <Box
+          style={{
+            position: 'absolute',
+            right: 16,
+            display: 'flex',
+          }}
+        >
+          <Button
+            component="a"
+            href="https://github.com/jessicaliu06"
+            target="_blank"
+            rel="noopener noreferrer"
+            variant="subtle"
+            size="sm"
+            px={8}
+            style={{ color: 'inherit' }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.backgroundColor = 'transparent';
+              e.currentTarget.style.color = 'inherit';
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.backgroundColor = 'transparent';
+              e.currentTarget.style.color = 'inherit';
+            }}
+          >
+            <IconBrandGithub size={24} />
+          </Button>
+
+          <Button
+            component="a"
+            href="https://www.linkedin.com/in/jessicaaliu/"
+            target="_blank"
+            rel="noopener noreferrer"
+            variant="subtle"
+            size="sm"
+            px={8}
+            style={{ color: 'inherit' }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.backgroundColor = 'transparent';
+              e.currentTarget.style.color = 'inherit';
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.backgroundColor = 'transparent';
+              e.currentTarget.style.color = 'inherit';
+            }}
+          >
+            <IconBrandLinkedin size={24} />
+          </Button>
+        </Box>
+      )}
 
       {isMobile ? (
         <Box
@@ -80,7 +169,7 @@ export default function Header() {
               dropdown: {
                 right: '10px',
                 left: 'auto',
-                transform: 'translateY(-8px)'
+                transform: 'translateY(-5px)'
               },
             }}
           >
@@ -108,7 +197,15 @@ export default function Header() {
           </Menu>
         </Box>
       ) : (
-        <Group>
+        <Box
+          style={{
+            position: 'absolute',
+            left: '50%',
+            transform: 'translateX(-50%)',
+            display: 'flex',
+            gap: '12px',
+          }}
+        >
           {sections.map(({ id, label }) => (
             <Button
               key={id}
@@ -118,7 +215,8 @@ export default function Header() {
                 padding: '8px 12px',
                 backgroundColor: 'transparent',
                 color: 'inherit',
-                fontWeight: 500,
+                fontSize: 16,
+                fontWeight: 600,
                 borderRadius: 4,
                 cursor: 'pointer',
                 border: 'none',
@@ -130,7 +228,7 @@ export default function Header() {
               {label}
             </Button>
           ))}
-        </Group>
+        </Box>
       )}
     </Box>
   );

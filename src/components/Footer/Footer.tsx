@@ -1,4 +1,5 @@
 import { Stack, Title, Text } from '@mantine/core';
+import { IconSparkles } from '@tabler/icons-react';
 
 interface FooterHeight {
   footerHeight: number | null;
@@ -19,7 +20,7 @@ export default function Footer({ footerHeight }: FooterHeight) {
       }}
     >
       <Text pt="sm" pb="sm">
-        Thank you for visiting! 
+        Thank you for visiting! ♡
       </Text>
     </Stack>
   );
