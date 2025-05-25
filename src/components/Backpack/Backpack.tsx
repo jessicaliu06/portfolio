@@ -20,50 +20,62 @@ import umbrella from '/src/assets/items/umbrella.png';
 import waterbottle from '/src/assets/items/waterbottle.png';
 import highlighter from '/src/assets/items/highlighter.png';
 
-export default function Backpack() {
-    const isMobile = useMediaQuery('(max-width: 768px)');
+import Footer from '../Footer/Footer';
 
-    const [scroll] = useWindowScroll();
-    const sectionRef = useRef<HTMLDivElement>(null);
-    const backpackRef = useRef<HTMLImageElement>(null);
+interface BackpackProps {
+  triggerY: number | null;
+}
 
-    const [startScrollY, setStartScrollY] = useState<number | null>(null);
-    const [backpackCenter, setBackpackCenter] = useState({ x: 0, y: 0 });
-    const [backpackWidth, setBackpackWidth] = useState(120);
+export default function Backpack({ triggerY }: BackpackProps)  {
+  const isMobile = useMediaQuery('(max-width: 768px)');
+  const [scroll] = useWindowScroll();
 
-    useEffect(() => {
-        if (sectionRef.current && startScrollY === null) {
-            const offset = sectionRef.current.offsetTop;
-            setStartScrollY(offset - window.innerHeight * 0.6);
-        }
+  const startScrollY = triggerY ?? 0;
 
-        const updateBackpackPosition = () => {
-            if (backpackRef.current) {
-                const rect = backpackRef.current.getBoundingClientRect();
-                setBackpackCenter({
-                    x: rect.left + rect.width / 2 - 25,
-                    y: rect.top + rect.height / 2,
-                });
-                setBackpackWidth(rect.width);
-            }
-        };
+  const backpackRef = useRef<HTMLImageElement>(null);
+  const wrapperRef = useRef<HTMLDivElement>(null);
 
-        updateBackpackPosition();
-        window.addEventListener('scroll', updateBackpackPosition);
-        window.addEventListener('resize', updateBackpackPosition);
+  const [backpackCenter, setBackpackCenter] = useState({ x: 0, y: 0 });
+  const [backpackWidth, setBackpackWidth] = useState(120);
+  const [backpackHeight, setBackpackHeight] = useState(0);
+  const [footerHeight, setFooterHeight] = useState(0);
 
-        return () => {
-            window.removeEventListener('scroll', updateBackpackPosition);
-            window.removeEventListener('resize', updateBackpackPosition);
-        };
-    }, [sectionRef.current, startScrollY]);
+  useEffect(() => {
+    const updatePosition = () => {
+      if (backpackRef.current && wrapperRef.current) {
+        const rect = backpackRef.current.getBoundingClientRect();
+        const wrapperRect = wrapperRef.current.getBoundingClientRect();
+        const scrollY = window.scrollY;
 
-    const maxAnimationScroll = isMobile ? 100 : 300;
-    const progress = startScrollY !== null && scroll.y >= startScrollY
-                        ? Math.min((scroll.y - startScrollY) / maxAnimationScroll, 1)
-                        : 0;
+        setBackpackWidth(rect.width);
+        setBackpackHeight(rect.height);
+        setBackpackCenter({
+          x: rect.left + rect.width / 2 - 25,
+          y: rect.top + rect.height / 2,
+        });
+        setFooterHeight( Math.max(200 - rect.height, 0));
+      }
+    };
 
-    const objects = [
+    updatePosition();
+    window.addEventListener('resize', updatePosition);
+    window.addEventListener('scroll', updatePosition);
+
+    return () => {
+      window.removeEventListener('resize', updatePosition);
+      window.removeEventListener('scroll', updatePosition);
+    };
+  }, []);
+
+  const maxAnimationScroll = 200;
+  const progress = scroll.y >= startScrollY
+    ? Math.min((scroll.y - startScrollY) / maxAnimationScroll, 1)
+    : 0;
+
+  const interpolate = (start: number, end: number) =>
+    start + (end - start) * progress;
+
+  const objects = [
         {
             src: airpods,
             widthPct: 0.35, 
@@ -171,63 +183,59 @@ export default function Backpack() {
         },
     ];
 
-    const interpolate = (start: number, end: number) => Math.round(start + (end - start) * progress);
+  return (
+    <div ref={wrapperRef} style={{ width: '100%', position: 'relative' }}>
+      <Container
+        fluid
+        style={{
+          position: 'relative',
+          height: '100vh',
+          padding: 0,
+          margin: 0,
+          overflow: 'visible',
+        }}
+      >
+        <Image
+          ref={backpackRef}
+          src={backpack}
+          w={120}
+          style={{
+            position: 'sticky',
+            top: 'calc(100vh - 200px)',
+            margin: '0 auto',
+            zIndex: 2,
+            transform: 'translateX(8px)'
+          }}
+        />
 
-    return (
-        <Container
-            fluid
-            ref={sectionRef}
-            style={{ 
-                position: 'relative',
-                height: isMobile ? '150vh' : '80vh',
-                width: '100%',
-                boxSizing: 'border-box',
-                maxWidth: '100%',
-                padding: 0,
-                margin: 0
-            }}
-        >
-            <Image
-                ref={backpackRef}
-                src={backpack}
-                alt="backpack"
-                w={120}
-                style={{
-                    position: 'sticky',
-                    top: '70vh',
-                    margin: '0 auto',
-                    zIndex: 2,
-                    display: 'block',
-                    cursor: 'pointer',
-                    transform: 'translateX(0.4vw)',
-                }}
+        {objects.map(({ src, widthPct, xPct, yPct, r }, i) => {
+          const widthPx = backpackWidth * widthPct;
+          const xPx = backpackWidth * xPct;
+          const yPx = backpackWidth * yPct;
+
+          return (
+            <motion.img
+              key={i}
+              src={src}
+              alt={`object-${i}`}
+              style={{
+                position: 'fixed',
+                top: backpackCenter.y,
+                left: backpackCenter.x,
+                width: widthPx,
+                zIndex: 1,
+                transform: `translate(${interpolate(0, xPx)}px, ${interpolate(
+                  0,
+                  yPx
+                )}px) rotate(${interpolate(0, r)}deg)`,
+                opacity: progress,
+                pointerEvents: 'none',
+              }}
             />
-
-            {objects.map(({ src, widthPct, xPct, yPct, r }, i) => {
-                const widthPx = backpackWidth * widthPct;
-                const xPx = backpackWidth * xPct;
-                const yPx = backpackWidth * yPct;
-
-                return (
-                    <motion.img
-                        key={i}
-                        src={src}
-                        alt={`object-${i}`}
-                        style={{
-                            position: 'fixed',
-                            top: backpackCenter.y,
-                            left: backpackCenter.x,
-                            width: widthPx,
-                            zIndex: 1,
-                            transform: `translate(${interpolate(0, xPx)}px, ${interpolate(0, yPx)}px) rotate(${interpolate(0, r)}deg)`,
-                            opacity: progress,
-                            pointerEvents: 'none',
-                        }}
-                    />
-                );
-            })}
-
-            <div style={{ height: 100, pointerEvents: 'none' }} />
+          );
+        })}
         </Container>
-    );
+        <Footer footerHeight={footerHeight} />
+    </div>
+  );
 }

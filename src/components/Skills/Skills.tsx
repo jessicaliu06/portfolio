@@ -1,7 +1,10 @@
 import { Container, Grid, Stack, Text, Title } from '@mantine/core';
 import { useMediaQuery } from '@mantine/hooks';
 
+import { useRef, useEffect, useState } from 'react';
+
 import SkillCard from './SkillCard';
+import Backpack from '../Backpack/Backpack';
 
 import java from '/src/assets/skills/java.svg';
 import c from '/src/assets/skills/c.svg';
@@ -19,6 +22,30 @@ import git from '/src/assets/skills/git.svg';
 export default function Skills() {
   const isMobile = useMediaQuery('(max-width: 768px)');
 
+  const skillsHeaderRef = useRef<HTMLHeadingElement>(null);
+
+  const [skillsTriggerY, setSkillsTriggerY] = useState<number | null>(null);
+
+  useEffect(() => {
+    const updateTriggerY = () => {
+      if (skillsHeaderRef.current) {
+        const rect = skillsHeaderRef.current.getBoundingClientRect();
+        const scrollY = window.scrollY || window.pageYOffset;
+        const triggerPosition = scrollY + rect.top;
+        setSkillsTriggerY(triggerPosition);
+      }
+    };
+
+    updateTriggerY();
+    window.addEventListener('resize', updateTriggerY);
+    window.addEventListener('scroll', updateTriggerY);
+
+    return () => {
+      window.removeEventListener('resize', updateTriggerY);
+      window.removeEventListener('scroll', updateTriggerY);
+    };
+  }, []);
+
   return (
     <Container
       fluid
@@ -31,7 +58,6 @@ export default function Skills() {
           alignItems: 'center',
           boxSizing: 'border-box',
           maxWidth: '100%',
-          paddingBottom: '10%'
       }}
     >
       <Stack
@@ -45,7 +71,7 @@ export default function Skills() {
           margin: 0,
         }}
       >
-        <Title order={2}>
+        <Title order={2} ref={skillsHeaderRef}>
           Skills
         </Title>
         
@@ -62,7 +88,10 @@ export default function Skills() {
           <SkillCard name="MySQL" img={mysql} /> 
           <SkillCard name="Firebase" img={firebase} />
           <SkillCard name="Git" img={git} />                
-      </Grid>
+        </Grid>
+
+        <div style={{ height: isMobile ? 40 : 64 }} />
+        <Backpack triggerY={skillsTriggerY} />
       </Stack>
     </Container>
   );

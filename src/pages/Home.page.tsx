@@ -29,8 +29,6 @@ export function HomePage() {
       <Experience />
       <Projects />
       <Skills />
-      <Backpack />
-      <Footer />
     </Container>    
   );
 }

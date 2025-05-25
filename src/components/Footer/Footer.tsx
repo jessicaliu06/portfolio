@@ -1,15 +1,19 @@
 import { Stack, Title, Text } from '@mantine/core';
 
-export default function Footer() {
+interface FooterHeight {
+  footerHeight: number | null;
+}
+
+export default function Footer({ footerHeight }: FooterHeight) {
   return (
     <Stack
-      bg="var(--mantine-color-body)"
       align="center"
       justify="center"
       w="100%"
       style={{
         boxSizing: 'border-box',
         maxWidth: '100%',
+        height: footerHeight ? `${footerHeight}px` : 'auto',
         padding: 0,
         margin: 0,
       }}
