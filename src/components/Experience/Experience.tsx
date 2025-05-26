@@ -6,6 +6,9 @@ import ExperienceCard from './ExperienceCard';
 import nianticLogo from '/src/assets/logos/niantic.png';
 import gtLogo from '/src/assets/logos/gtLogo.png';
 import alphaModelsLogo from '/src/assets/logos/alphaModelsLogo.png';
+import whiteFlower from '/src/assets/white_flower.png';
+import pinkButton2 from '/src/assets/pink_button2.png';
+import pinkButton3 from '/src/assets/pink_button3.png';
 
 export default function Experience() {
   const isMobile = useMediaQuery('(max-width: 768px)');
@@ -55,7 +58,7 @@ export default function Experience() {
               <Avatar
                 size={32}
                 radius="xl"
-                src="src/assets/white_flower.png"
+                src={whiteFlower}
               />
             }
           >
@@ -77,7 +80,7 @@ export default function Experience() {
               <Avatar
                 size={32}
                 radius="xl"
-                src="src/assets/pink_button3.png"
+                src={pinkButton3}
               />
             }
           >
@@ -148,7 +151,7 @@ export default function Experience() {
               <Avatar
                 size={32}
                 radius="xl"
-                src="src/assets/pink_button2.png"
+                src={pinkButton2}
               />
             }
           >
