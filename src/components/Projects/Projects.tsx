@@ -1,4 +1,4 @@
-import { Container, Grid, List, Stack, Text, Title } from '@mantine/core';
+import { Container, Grid, List, Stack, Title, useMantineTheme } from '@mantine/core';
 import { useMediaQuery } from '@mantine/hooks';
 
 import ProjectCard from './ProjectCard';
@@ -9,6 +9,7 @@ import breadboard3 from '/src/assets/projects/breadboard3.png';
 
 export default function Projects() {
   const isMobile = useMediaQuery('(max-width: 768px)');
+  const theme = useMantineTheme();
 
   return (
     <Container
@@ -36,7 +37,7 @@ export default function Projects() {
           margin: 0,
         }}
       >
-        <Title order={2}>
+        <Title order={2} style={{ color: theme.colors['celeste'][3] }}>
           Projects
         </Title>
 

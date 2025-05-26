@@ -1,6 +1,8 @@
-import { Button, Container, Stack, Text, Title } from '@mantine/core';
+import { Button, Container, Stack, Text, Title, useMantineTheme } from '@mantine/core';
 
 export default function Intro() {
+  const theme = useMantineTheme();
+  
   return (
     <Container
       fluid
@@ -39,6 +41,10 @@ export default function Intro() {
           href="https://jessicaliu06.github.io/resume/LiuJessica_Resume.pdf"
           target="_blank"
           rel="noopener noreferrer"
+          style={{
+            backgroundColor: '#edacb7',
+            color: 'white',             
+          }}
         >
           Resume
         </Button>

@@ -1,8 +1,9 @@
 import '@mantine/carousel/styles.css'; 
 
-import { AspectRatio, Badge, Button, Card, Divider, Grid, Group, Image, Stack, Text } from '@mantine/core';
+import { AspectRatio, Badge, Button, Card, Divider, Group, Image, Text, useMantineTheme } from '@mantine/core';
 import { Carousel } from '@mantine/carousel';
 import { useMediaQuery } from '@mantine/hooks';
+
 import { IconBrandGithub } from '@tabler/icons-react';
 
 interface ProjectCardProps {
@@ -21,6 +22,7 @@ export default function ProjectCard({
   githubUrl,
 }: ProjectCardProps) {
     const isMobile = useMediaQuery('(max-width: 768px)');
+    const theme = useMantineTheme();
 
     return (
         <Card shadow="sm" padding="md" radius="md" withBorder style={{ width: isMobile ? '100%' : '50%' }}>
@@ -39,11 +41,7 @@ export default function ProjectCard({
                     indicator: {
                         height: 4,
                         transition: 'background-color 0.3s ease',
-                        backgroundColor: '#f8bbd0',
-
-                        '&[data-active]': {
-                            backgroundColor: '#c2185b',
-                        },
+                        backgroundColor: theme.colors.celeste[3],
                     },
                 }}
             >
@@ -64,7 +62,7 @@ export default function ProjectCard({
 
             <Group wrap="wrap" style={{ gap: 5 }}>
                 {technologies.map((tech) => (
-                <Badge key={tech} radius="xl" variant="light">
+                <Badge key={tech} radius="xl" variant="light" color='celeste'>
                     {tech}
                 </Badge>
                 ))}
@@ -72,11 +70,12 @@ export default function ProjectCard({
 
             <Button
                 component="a"
+                color='celeste'
                 href={githubUrl}
                 target="_blank"
                 rel="noopener noreferrer"
                 leftSection={<IconBrandGithub size={18} />}
-                variant="light"
+                variant="outline"
                 fullWidth
                 mt="md"
             >

@@ -24,14 +24,14 @@ export default function ExperienceCard({
 
     return (
         <Card
-        shadow="sm"
-        padding="0"
-        radius="md"
-        withBorder
-        style={{
-            width: '100%',
-            boxSizing: 'border-box',
-        }}
+            shadow="sm"
+            padding="0"
+            radius="md"
+            withBorder
+            style={{
+                width: '100%',
+                boxSizing: 'border-box',
+            }}
         >
             <Box style={{ width: '100%' }}>
                 <Accordion variant="unstyled" styles={{

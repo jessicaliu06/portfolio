@@ -1,4 +1,4 @@
-import { Container, Grid, Stack, Text, Title } from '@mantine/core';
+import { Container, Grid, Stack, Title, useMantineTheme } from '@mantine/core';
 import { useMediaQuery } from '@mantine/hooks';
 
 import { useRef, useEffect, useState } from 'react';
@@ -21,9 +21,9 @@ import git from '/src/assets/skills/git.svg';
 
 export default function Skills() {
   const isMobile = useMediaQuery('(max-width: 768px)');
+  const theme = useMantineTheme();
 
   const skillsHeaderRef = useRef<HTMLHeadingElement>(null);
-
   const [skillsTriggerY, setSkillsTriggerY] = useState<number | null>(null);
 
   useEffect(() => {
@@ -71,7 +71,7 @@ export default function Skills() {
           margin: 0,
         }}
       >
-        <Title order={2} ref={skillsHeaderRef}>
+        <Title order={2} ref={skillsHeaderRef} style={{ color: theme.colors['mantis'][5] }}>
           Skills
         </Title>
         

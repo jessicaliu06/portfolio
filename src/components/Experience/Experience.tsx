@@ -1,6 +1,5 @@
-import { Box, Container, List, Stack, Text, Timeline, Title } from '@mantine/core';
+import { Avatar, Box, Container, List, Stack, Text, Timeline, Title, useMantineTheme } from '@mantine/core';
 import { useMediaQuery } from '@mantine/hooks';
-import { IconSun, IconVideo } from '@tabler/icons-react';
 
 import ExperienceCard from './ExperienceCard';
 
@@ -10,6 +9,7 @@ import alphaModelsLogo from '/src/assets/logos/alphaModelsLogo.png';
 
 export default function Experience() {
   const isMobile = useMediaQuery('(max-width: 768px)');
+  const theme = useMantineTheme();
 
   return (
     <Container
@@ -37,7 +37,7 @@ export default function Experience() {
           margin: 0,
         }}
       >
-        <Title order={2}>
+        <Title order={2} style={{ color: theme.colors['light-coral'][3] }}>
           Experience
         </Title>
 
@@ -47,9 +47,18 @@ export default function Experience() {
             margin: '0 auto', 
             width: useMediaQuery('(max-width: 768px)') ? '100%' : '35%' 
           }}
-          
+          active={3}
+          color={theme.colors['fairy-tale'][1]}
         >
-          <Timeline.Item>
+          <Timeline.Item
+            bullet={
+              <Avatar
+                size={32}
+                radius="xl"
+                src="src/assets/white_flower.png"
+              />
+            }
+          >
             <ExperienceCard
               company="Niantic Spatial"
               title="Software Engineering Intern"
@@ -57,13 +66,21 @@ export default function Experience() {
               location="Seattle, WA"
               details=
               {<List spacing="xs" size={isMobile ? "xs" : 'sm'}>
-                <List.Item>Niantic Augmented Reality SDK</List.Item>
+                <List.Item>Niantic Spatial Platform SDK</List.Item>
               </List>}
               value="niantic"
               logo={nianticLogo}
             />
           </Timeline.Item>
-          <Timeline.Item>
+          <Timeline.Item
+            bullet={
+              <Avatar
+                size={32}
+                radius="xl"
+                src="src/assets/pink_button3.png"
+              />
+            }
+          >
             <ExperienceCard
               company="Georgia Institute of Technology"
               title="Undergraduate Teaching Assistant"
@@ -126,7 +143,15 @@ export default function Experience() {
               logo={gtLogo}
             />
           </Timeline.Item>
-          <Timeline.Item>
+          <Timeline.Item
+            bullet={
+              <Avatar
+                size={32}
+                radius="xl"
+                src="src/assets/pink_button2.png"
+              />
+            }
+          >
             <ExperienceCard
               company="Alpha Models Inc."
               title="Software Engineering Intern"

@@ -1,17 +1,19 @@
 import { useState } from 'react';
-import { Box, Button, Burger, Group, Menu } from '@mantine/core';
+import { Box, Button, Burger, Group, Menu, useMantineTheme } from '@mantine/core';
 import { useMediaQuery } from '@mantine/hooks';
 import { IconBrandGithub, IconBrandLinkedin } from '@tabler/icons-react';
+
 
 export default function Header() {
   const [menuOpened, setMenuOpened] = useState(false);
   const isMobile = useMediaQuery('(max-width: 768px)');
+  const theme = useMantineTheme();
 
   const sections = [
-    { id: 'intro', label: 'About' },
-    { id: 'experience', label: 'Experience' },
-    { id: 'projects', label: 'Projects' },
-    { id: 'skills', label: 'Skills' },
+    { id: 'intro', label: 'About', color: 'fairy-tale', index: 2 },
+    { id: 'experience', label: 'Experience', color: 'light-coral', index: 3 },
+    { id: 'projects', label: 'Projects', color: 'celeste', index: 3 },
+    { id: 'skills', label: 'Skills', color: 'mantis', index: 5 },
   ];
 
   const scrollWithOffset = (id: string) => {
@@ -206,7 +208,7 @@ export default function Header() {
             gap: '12px',
           }}
         >
-          {sections.map(({ id, label }) => (
+          {sections.map(({ id, label, color, index }) => (
             <Button
               key={id}
               variant="subtle"
@@ -214,7 +216,7 @@ export default function Header() {
               style={{
                 padding: '8px 12px',
                 backgroundColor: 'transparent',
-                color: 'inherit',
+                color: theme.colors[color][index],
                 fontSize: 16,
                 fontWeight: 600,
                 borderRadius: 4,
