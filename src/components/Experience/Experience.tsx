@@ -68,9 +68,25 @@ export default function Experience() {
               date="May 2025 – August 2025"
               location="Seattle, WA"
               details=
-              {<List spacing="xs" size={isMobile ? "xs" : 'sm'}>
-                <List.Item>Niantic Spatial Platform SDK</List.Item>
-              </List>}
+              { <List 
+                    spacing="xs"
+                    style={{ width: '95%' }}
+                    size={isMobile ? "xs" : 'sm'}
+                    styles={{
+                      item: {
+                        marginBottom: -5,
+                        marginTop: 5,
+                        '&:last-of-type': {
+                          marginBottom: 0,
+                        },
+                      },
+                    }}
+                  >
+                  <List.Item>Implemented a platform-specific Wi-Fi scanning app to collect Wi-Fi and analyze the Wi-Fi topology of the surrounding space.</List.Item>
+                  <List.Item>Developed a visual positioning algorithm in Python to improve computer vision localization to large contiguous area maps with Wi-Fi fingerprinting and feature matching.</List.Item>
+                  <List.Item>Created an agentic AI application using Model Context Protocol to orchestrate augmented reality and geospatial tools to recommend real estate properties and answer detailed spatial queries about locations and interiors.</List.Item>
+                </List>
+              }
               value="niantic"
               logo={nianticLogo}
             />
@@ -95,6 +111,22 @@ export default function Experience() {
                   <Box>
                     <Title order={ isMobile ? 6 : 4 }>CS 3510 – Design & Analysis of Algorithms</Title>
                     <Text c="dimmed" style={{fontSize: isMobile ? 10 : 14}}>August 2025 – Present</Text>
+                    <List
+                        spacing="xs"
+                        size={isMobile ? "xs" : 'sm'}
+                        styles={{
+                          item: {
+                            marginBottom: -5,
+                            marginTop: 5,
+                            '&:last-of-type': {
+                              marginBottom: 0,
+                            },
+                          },
+                        }}
+                      >
+                          <List.Item>Teach advanced topics in algorithms, including graph algorithms, dynamic programming, and complexity theory.</List.Item>
+                          <List.Item>Host office hours for classes of 600+ students.</List.Item>
+                      </List>
                   </Box>
 
                   <Box>
@@ -163,7 +195,7 @@ export default function Experience() {
               details=
               { <List 
                     spacing="xs"
-                    style={{ width: '97%' }}
+                    style={{ width: '95%' }}
                     size={isMobile ? "xs" : 'sm'}
                     styles={{
                       item: {
