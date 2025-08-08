@@ -82,7 +82,7 @@ export default function Experience() {
                       },
                     }}
                   >
-                  <List.Item>Implemented a platform-specific Wi-Fi scanning app to collect Wi-Fi and analyze the Wi-Fi topology of the surrounding space.</List.Item>
+                  <List.Item>Implemented a Wi-Fi scanning app to collect Wi-Fi and analyze the Wi-Fi topology of the surrounding space.</List.Item>
                   <List.Item>Developed a visual positioning algorithm in Python to improve computer vision localization to large contiguous area maps with Wi-Fi fingerprinting and feature matching.</List.Item>
                   <List.Item>Created an agentic AI application using Model Context Protocol to orchestrate augmented reality and geospatial tools to recommend real estate properties and answer detailed spatial queries about locations and interiors.</List.Item>
                 </List>
